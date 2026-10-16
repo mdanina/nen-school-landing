@@ -1,0 +1,700 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Школа НЭН — курсы для родителей от «Нет, это нормально»</title>
+<link rel="canonical" href="https://n-e-n.ru/school/">
+<meta name="description" content="Школа НЭН: онлайн-курсы издания «Нет, это нормально» для родителей, от беременности до подросткового возраста. Доказательная медицина, понятный язык, доступ навсегда.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Школа НЭН — курсы для родителей от «Нет, это нормально»">
+<meta property="og:description" content="Беременность и роды, первый год, крики и драки, подростковые ссоры. Четыре курса НЭН о том, что правда стоит внимания и где не надо паниковать.">
+<meta property="og:image" content="https://n-e-n.ru/school/images/tild3162-3837-4363-a265-613965306230__facebook_post_-_scho.jpg">
+<meta property="og:url" content="https://n-e-n.ru/school/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700&family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ───────────── Токены: те же, что у лендингов /perestan/ и /podrostok/landing/ ─────────────
+     Figma «NEN products» (node 111:6232): колонка 1200px, светлый розовый фон,
+     темно-синие плашки, оранжевый только у кнопок и акцентов. */
+  :root{
+    --nen-blue-900:#252f67;
+    --nen-blue-700:#3d53bf;
+    --nen-blue-500:#6683ff;
+    --nen-blue-200:#c5d0ff;
+    --nen-blue-50:#f1f4ff;
+    --nen-pink-200:#ffccda;
+    --nen-sky-200:#c5e3ff;      /* голубой фон иллюстрации «Первый год с малышом» */
+    --nen-pink-50:#fff6f8;
+    --nen-orange-500:#fb6326;
+    --nen-pink-700:#903750;     /* бордо из брендбука: акцент в заголовке и цифры фактоидов, 7,4:1 на белом */
+    --nen-white:#fff;
+    --muted:#5d628c;            /* blue-900 на 72% поверх pink-50: подписи */
+
+    --display:"Unbounded",system-ui,-apple-system,sans-serif;
+    --text:"Golos Text",system-ui,-apple-system,sans-serif;
+
+    --fs-h1:clamp(30px,1.9vw + 20px,44px);
+    --fs-h2:clamp(24px,1.1vw + 17px,32px);
+    --fs-h3:clamp(18px,.35vw + 16px,20px);
+    --fs-lead:clamp(17px,.35vw + 15px,20px);
+    --fs-body:16px;
+    --fs-sm:14px;
+    --fs-xs:12px;
+
+    --radius:10px;
+    --radius-pill:30px;
+    --radius-tag:6px;
+    --wrap:1200px;
+    --gutter:clamp(16px,3vw,40px);
+    --section-gap:clamp(56px,7vw,100px);
+    --bar-h:84px;
+  }
+
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:16px;scroll-padding-bottom:calc(var(--bar-h) + 16px)}
+  body{
+    margin:0;
+    background:var(--nen-pink-50);
+    color:var(--nen-blue-900);
+    font-family:var(--text);
+    font-size:var(--fs-body);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{font-family:var(--display);margin:0;text-wrap:balance;overflow-wrap:break-word}
+  h1{font-size:var(--fs-h1);font-weight:700;line-height:1.15}
+  h2{font-size:var(--fs-h2);font-weight:600;line-height:1.3}
+  h3{font-size:var(--fs-h3);font-weight:500;line-height:1.4}
+  p{margin:0;text-wrap:pretty}
+  ul,ol{margin:0;padding:0;list-style:none}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  .nowrap{white-space:nowrap}
+
+  .wrap{width:min(100% - var(--gutter) * 2,var(--wrap));margin-inline:auto}
+  section{padding-bottom:var(--section-gap)}
+  .section-head{display:flex;flex-direction:column;gap:14px;max-width:760px;margin-bottom:32px}
+  .section-head p{font-size:18px;font-weight:500}
+
+  /* ───────────── Кнопка, ссылка, тег ───────────── */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    /* Белый на оранжевом #FB6326, как в логотипе Школы НЭН. Контраст 3:1, поэтому подпись жирная и с тенью. */
+    background:var(--nen-orange-500);color:var(--nen-white);text-shadow:0 1px 2px rgba(120,40,0,.28);
+    box-shadow:0 6px 18px rgba(251,99,38,.32);
+    font-family:var(--display);font-weight:700;font-size:var(--fs-sm);line-height:1.4;
+    text-decoration:none;text-align:center;white-space:nowrap;
+    padding:19px 48px 17px;border:0;border-radius:var(--radius-pill);cursor:pointer;
+    transition:transform .3s cubic-bezier(.16,1,.3,1),filter .2s;
+  }
+  .btn:hover{transform:translateY(-2px);filter:brightness(1.06);box-shadow:0 10px 24px rgba(251,99,38,.42)}
+  .btn:active{transform:translateY(0)}
+  .btn:focus-visible{outline:3px solid var(--nen-blue-500);outline-offset:3px}
+  .btn-ghost{background:transparent;color:var(--nen-blue-900);border:2px solid var(--nen-blue-200);padding:11px 22px 9px;font-size:var(--fs-xs);box-shadow:none;font-weight:500;text-shadow:none}
+  .btn-ghost:hover{filter:none;border-color:var(--nen-blue-500);box-shadow:none}
+
+  .link-down{
+    font-family:var(--display);font-weight:500;font-size:var(--fs-sm);color:var(--nen-blue-700);
+    text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:5px;
+    padding:8px 2px;
+  }
+  .link-down:hover{color:var(--nen-blue-900)}
+  .link-down:focus-visible{outline:2px solid var(--nen-blue-500);outline-offset:3px;border-radius:4px}
+
+  .tag{
+    display:inline-flex;align-items:center;justify-content:center;align-self:flex-start;
+    font-family:var(--display);font-weight:400;font-size:var(--fs-xs);line-height:normal;
+    text-transform:uppercase;letter-spacing:.03em;padding:9px 18px 8px;border-radius:var(--radius-tag);
+    background:var(--nen-blue-200);color:var(--nen-blue-900);
+  }
+
+  /* ───────────── Шапка ───────────── */
+  .site-header{padding:24px 0 0}
+  .site-header .inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .site-header .logo{flex:none;display:inline-flex;align-items:center}
+  .site-header .logo img{height:36px;width:auto}
+  .site-header .btn-ghost{padding:7px 14px 6px;font-size:12px;border-width:1.5px}
+
+  /* ───────────── Первый экран ───────────── */
+  .hero{padding-top:clamp(28px,4vw,48px);padding-bottom:clamp(40px,5vw,64px)}
+  .hero-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:center}
+  .hero-copy{display:flex;flex-direction:column;gap:20px;align-items:flex-start;max-width:540px}
+  .hero h1 em{font-style:normal;color:var(--nen-pink-700)}
+  .hero .lead{font-size:18px;line-height:1.55}
+  .hero .eyebrow{font-family:var(--display);font-weight:500;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--nen-blue-700)}
+  .hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px;margin-top:6px}
+  /* Черно-белый контур без фона на плашке NEN Blue (по брендбуку — «Hero: Blue 500, большие поля»): облака исходной обложки стали прозрачными
+     и работают как небо, а фигуры, обрезанные краем картинки, упираются в край плашки. */
+  .hero-art{aspect-ratio:1400 / 1020;border-radius:var(--radius);background:var(--nen-blue-500);overflow:hidden}
+  .hero-art img{width:100%;height:100%;object-fit:cover;object-position:center bottom}
+
+  /* ───────────── Почему нам можно верить ───────────── */
+  .facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+  .fact{background:var(--nen-white);border:1px solid var(--nen-pink-200);border-radius:var(--radius);padding:24px 26px;display:flex;flex-direction:column;gap:8px}
+  .fact b{font-family:var(--display);font-weight:600;font-size:clamp(26px,1.6vw + 16px,38px);line-height:1.1;color:var(--nen-pink-700);font-variant-numeric:tabular-nums}
+  .fact b.word{font-size:clamp(20px,.8vw + 15px,26px);line-height:1.25}
+  .fact span{font-size:17px}
+
+  /* ───────────── Зачем ───────────── */
+  .why-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+  .why{background:var(--nen-blue-50);border:1px solid var(--nen-blue-200);border-radius:var(--radius);padding:24px 22px;display:flex;flex-direction:column;gap:12px}
+  .why h3{font-weight:600;color:var(--nen-blue-700)}
+
+  /* ───────────── Курсы ───────────── */
+  .courses-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+  .course{
+    background:var(--nen-white);border:1px solid var(--nen-pink-200);border-radius:var(--radius);
+    overflow:hidden;display:flex;flex-direction:column;
+    transition:border-color .2s,transform .3s cubic-bezier(.16,1,.3,1);
+  }
+  .course:hover{border-color:var(--nen-blue-200);transform:translateY(-2px)}
+  /* Иллюстрации курсов: черный контур без фона, одна высота плашки, фигуры стоят на нижнем крае */
+  .course-art{position:relative;aspect-ratio:16 / 9;overflow:hidden}
+  .course-art img{position:absolute;left:24px;top:22px;width:calc(100% - 48px);height:calc(100% - 22px);object-fit:contain;object-position:center bottom}
+  .course-art.pad img{height:calc(100% - 40px)}
+  /* Фоны: Pink 200 и Blue 200 (сиреневый) из брендбука «NEN products», голубой #C5E3FF — выбор Анастасии */
+  .art-pink{background:var(--nen-pink-200)}
+  .art-lilac{background:var(--nen-blue-200)}
+  .art-sky{background:var(--nen-sky-200)}
+  .course-body{padding:26px 28px 28px;display:flex;flex-direction:column;gap:14px;flex:1}
+  .course h3{font-size:clamp(19px,.5vw + 16px,22px);font-weight:600;line-height:1.3}
+  .course .meta{display:flex;flex-wrap:wrap;gap:6px 8px}
+  .course .meta li{font-size:var(--fs-sm);font-weight:500;padding:5px 11px 4px;border-radius:999px;background:var(--nen-blue-50);color:var(--nen-blue-700)}
+  .course-buy{margin-top:auto;padding-top:10px}
+  .course-btns{display:flex;flex-wrap:wrap;gap:10px}
+  .course-buy .btn{padding:16px 32px 14px}
+  /* Кнопка второго уровня: та же форма, без заливки */
+  .course-buy .btn-second{background:transparent;color:var(--nen-blue-900);border:2px solid var(--nen-blue-200);box-shadow:none;text-shadow:none;padding:14px 28px 12px}
+  .course-buy .btn-second:hover{filter:none;box-shadow:none;border-color:var(--nen-blue-500)}
+  .course .note{font-size:15px;color:var(--muted);margin-top:-4px}
+
+  /* ───────────── Это не школа идеального родительства ───────────── */
+  .not-panel{
+    background:var(--nen-blue-900);color:var(--nen-blue-50);border-radius:var(--radius);
+    padding:clamp(28px,4.5vw,55px);
+    /* Заголовок на всю ширину, под ним карточки рядами 3 + 2 */
+    display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:20px;
+  }
+  .not-head{grid-column:1 / -1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:16px 56px;align-items:start;padding-bottom:12px}
+  .not{grid-column:span 2}
+  .not:nth-of-type(n+4){grid-column:span 3}
+  .not-head h2{color:var(--nen-blue-50)}
+  .not-head p{font-size:17px;color:var(--nen-blue-200)}
+  .not{background:rgba(241,244,255,.06);border:1px solid rgba(241,244,255,.16);border-radius:var(--radius);padding:24px 22px;display:flex;flex-direction:column;gap:10px}
+  .not h3{font-weight:600;color:var(--nen-white)}
+  .not h3::before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--nen-orange-500);margin-right:10px;vertical-align:.12em}
+  .not p{color:var(--nen-blue-50)}
+
+  /* ───────────── Отзывы ───────────── */
+  .reviews-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:start}
+  .bubble{
+    position:relative;margin:0;border-radius:18px 18px 18px 4px;padding:22px 24px 20px;
+    font-family:var(--text);font-weight:500;font-size:clamp(18px,.5vw + 15px,21px);line-height:1.45;
+    background:var(--nen-white);border:1px solid var(--nen-pink-200);
+  }
+  .bubble.b-blue{background:var(--nen-blue-50);border-color:var(--nen-blue-200)}
+  .bubble.b-pink{background:var(--nen-pink-200);border-color:var(--nen-pink-200)}
+  .reviews-grid li:nth-child(2){margin-top:28px}
+  .reviews-grid li:nth-child(5){margin-top:28px}
+  .reviews .src{margin-top:20px;font-size:15px;color:var(--muted)}
+
+  /* ───────────── FAQ ───────────── */
+  .faq .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.2fr);gap:0 56px;align-items:start}
+  .faq .section-head{position:sticky;top:24px}
+  .faq-list{display:grid;gap:12px}
+  .faq-list details{background:var(--nen-white);border:1px solid var(--nen-pink-200);border-radius:var(--radius)}
+  .faq-list details[open]{border-color:var(--nen-blue-200)}
+  .faq-list summary{
+    list-style:none;cursor:pointer;padding:20px 22px;display:flex;justify-content:space-between;align-items:center;gap:20px;
+    font-weight:600;font-size:18px;line-height:1.4;border-radius:var(--radius);
+  }
+  .faq-list summary::-webkit-details-marker{display:none}
+  .faq-list summary:focus-visible{outline:3px solid var(--nen-blue-500);outline-offset:2px}
+  .faq-list summary .plus{flex:none;width:28px;height:28px;border-radius:50%;background:var(--nen-blue-50);color:var(--nen-blue-700);display:grid;place-items:center;transition:transform .3s cubic-bezier(.16,1,.3,1)}
+  .faq-list summary .plus svg{width:12px;height:12px}
+  .faq-list details[open] summary .plus{transform:rotate(45deg)}
+  .faq-list .answer{padding:0 22px 22px;display:flex;flex-direction:column;gap:10px;max-width:760px}
+  .faq-list .answer a{color:var(--nen-blue-700);font-weight:600}
+  .faq-list .answer ul{display:grid;gap:8px}
+  .faq-list .answer li{position:relative;padding-left:20px}
+  .faq-list .answer li::before{content:"";position:absolute;left:0;top:.55em;width:8px;height:8px;border-radius:50%;background:var(--nen-orange-500)}
+
+  /* ───────────── Финальный призыв ───────────── */
+  .final-panel{
+    background:var(--nen-blue-900);color:var(--nen-blue-50);border-radius:var(--radius);
+    padding:clamp(28px,4.5vw,55px);display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:40px 64px;align-items:center;
+  }
+  .final-copy{display:flex;flex-direction:column;gap:14px}
+  .final-copy h2{color:var(--nen-blue-50)}
+  .final-copy .lead{font-size:18px;color:var(--nen-blue-50);max-width:50ch}
+  .final-action{
+    background:rgba(241,244,255,.06);border:1px solid rgba(241,244,255,.16);border-radius:var(--radius);
+    padding:28px;display:flex;flex-direction:column;gap:16px;align-items:flex-start;
+  }
+  .final-action .name{font-family:var(--display);font-weight:500;font-size:var(--fs-sm);color:var(--nen-blue-200)}
+  .final-action .includes{font-size:15px;color:var(--nen-blue-50);line-height:1.5}
+  .final-action .price{font-family:var(--display);font-weight:600;font-size:clamp(36px,3vw + 16px,52px);line-height:1;color:var(--nen-white);font-variant-numeric:tabular-nums}
+  .final-action .price small{font-size:.4em;font-weight:500;color:var(--nen-blue-200);margin-left:6px}
+  .final-action .btn{width:100%}
+  .final-action .note{font-size:var(--fs-sm);color:var(--nen-blue-200)}
+
+  /* ───────────── Подвал ───────────── */
+  .site-footer{
+    background:var(--nen-blue-900);color:var(--nen-blue-50);
+    padding:clamp(40px,5vw,64px) 0 calc(var(--bar-h) + 56px + env(safe-area-inset-bottom,0px));
+  }
+  .foot-grid{display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between;align-items:flex-start}
+  .site-footer .logo img{height:32px;width:auto}
+  .socials{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+  .socials a{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:rgba(241,244,255,.12);color:var(--nen-blue-50);text-decoration:none;transition:background .2s,transform .2s}
+  .socials a:hover{background:rgba(241,244,255,.24);transform:translateY(-2px)}
+  .socials a:focus-visible{outline:2px solid var(--nen-blue-50);outline-offset:2px}
+  .socials svg{width:20px;height:20px;fill:currentColor;display:block}
+  .foot-legal{max-width:56ch;font-size:var(--fs-sm);color:var(--nen-blue-200);line-height:1.6}
+  .foot-legal a{color:var(--nen-blue-50)}
+  .age{display:inline-flex;align-items:center;justify-content:center;border:1.5px solid var(--nen-blue-200);border-radius:var(--radius-tag);padding:2px 8px;font-family:var(--display);font-size:var(--fs-xs);color:var(--nen-blue-50);margin-right:6px}
+  .foot-bottom{margin-top:28px;padding-top:20px;border-top:1px solid rgba(241,244,255,.16);font-size:var(--fs-sm);color:var(--nen-blue-200)}
+
+  /* ───────────── Плашка «Выбрать курс» ─────────────
+     Появляется, когда кнопка первого экрана ушла вверх. Прячется, пока на экране
+     карточки курсов или финальный призыв, и при возврате к первому экрану. */
+  .sticky-cta{
+    position:fixed;left:50%;bottom:0;z-index:60;
+    width:min(100% - 2 * var(--gutter),var(--wrap));
+    transform:translate(-50%,110%);visibility:hidden;
+    background:var(--nen-blue-700);color:var(--nen-blue-50);
+    border-radius:var(--radius) var(--radius) 0 0;
+    min-height:var(--bar-h);
+    padding:14px 14px calc(14px + env(safe-area-inset-bottom,0px)) 36px;
+    display:flex;align-items:center;justify-content:space-between;gap:20px;
+    box-shadow:0 -8px 30px rgba(37,47,103,.18);
+    transition:transform .4s cubic-bezier(.16,1,.3,1),visibility 0s linear .4s;
+  }
+  .sticky-cta.show{transform:translate(-50%,0);visibility:visible;transition:transform .4s cubic-bezier(.16,1,.3,1),visibility 0s}
+  .sticky-cta .txt{display:flex;flex-direction:column;gap:2px;min-width:0}
+  .sticky-cta .line{font-family:var(--display);font-weight:500;line-height:1.4}
+  .sticky-cta .name{font-size:var(--fs-sm);color:var(--nen-blue-200)}
+  .sticky-cta .mob{display:none}
+  .sticky-cta .btn{flex:none;padding:16px 36px 14px}
+
+  /* ───────────── Адаптив ───────────── */
+  @media (max-width:1080px){
+    .why-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .not-panel{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .not-head{grid-template-columns:1fr}
+    .not,.not:nth-of-type(n+4){grid-column:auto}
+    .not:last-child{grid-column:1 / -1}
+    .final-panel{grid-template-columns:minmax(0,1fr);gap:28px}
+  }
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:28px}
+    .hero-copy{max-width:none}
+    /* На мобильном иллюстрация над заголовком, как на лендинге подростка */
+    .hero-art{order:-1;aspect-ratio:16 / 10}
+    .facts{grid-template-columns:1fr;gap:12px}
+    .fact{flex-direction:row;align-items:baseline;gap:14px;padding:18px 20px}
+    .fact b{flex:none;font-size:28px}
+    .fact b.word{font-size:20px;flex:1 1 auto}
+    .courses-grid{grid-template-columns:1fr;max-width:640px}
+    .reviews-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .reviews-grid li:nth-child(n){margin-top:0}
+    .reviews-grid li:nth-child(even){margin-top:24px}
+    .faq .wrap{grid-template-columns:1fr}
+    .faq .section-head{position:static}
+  }
+  @media (max-width:640px){
+    :root{--bar-h:68px}
+    .site-header .logo img{height:30px}
+    .site-header .btn-ghost{padding:6px 12px 5px;font-size:11px}
+    .hero{padding-top:16px}
+    .hero-grid{gap:20px}
+    .hero-cta{align-self:stretch;flex-direction:column;align-items:stretch;gap:6px}
+    .hero-cta .link-down{align-self:center}
+    .btn{padding-inline:24px}
+    .fact{flex-direction:column;gap:4px}
+    .why-grid{grid-template-columns:1fr;gap:12px}
+    .course-body{padding:22px 20px 24px}
+    .course-btns{flex-direction:column}
+    .course-buy .btn{width:100%}
+    .not-panel{grid-template-columns:1fr;gap:12px;padding:28px 18px}
+    .not-head{padding:0 4px 8px}
+    .not:last-child{grid-column:auto}
+    .reviews-grid{grid-template-columns:1fr;gap:12px}
+    .reviews-grid li:nth-child(even){margin-top:0}
+    .reviews-grid li:nth-child(even) .bubble{margin-left:28px;border-radius:18px 18px 4px 18px}
+    .faq-list summary{font-size:17px;padding:18px}
+    .faq-list .answer{padding:0 18px 18px}
+    .final-action{padding:22px}
+    .sticky-cta{width:100%;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px)) 18px;gap:12px}
+    .sticky-cta .desk,.sticky-cta .name{display:none}
+    .sticky-cta .line{font-family:var(--text);font-weight:600;font-size:14px;line-height:1.3}
+    .sticky-cta .mob{display:inline}
+    .sticky-cta .btn{padding:14px 18px 12px;font-size:13px}
+  }
+  @media (max-width:360px){
+    .final-panel{padding:22px 16px}
+    .final-action{padding:18px 14px}
+    .sticky-cta .line{font-size:13px}
+    .sticky-cta .btn{padding-inline:14px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .btn,.course,.sticky-cta,.sticky-cta.show,.faq-list summary .plus{transition:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap inner">
+    <a class="logo" href="https://n-e-n.ru/school/" aria-label="Школа НЭН">
+      <img src="images/logo-school.svg" alt="Школа НЭН" width="200" height="41">
+    </a>
+    <a class="btn btn-ghost" href="https://n-e-n.ru/account/">Личный кабинет</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- Первый экран -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Курсы издания «Нет, это нормально»</p>
+        <h1>Для родителей, которые устали от <em>чужих советов</em></h1>
+        <p class="lead">Беременность и роды, первый год с младенцем, детские крики и драки, подростковые ссоры. Объясняем, что на каждом этапе правда стоит внимания, что можно спокойно пропустить, о чем спросить врача и где не надо паниковать раньше времени.</p>
+        <div class="hero-cta">
+          <a class="btn" id="heroBtn" href="#kursy">Выбрать курс</a>
+          <a class="link-down" href="#pochemu">Почему нам можно верить&nbsp;↓</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <!-- Обложка НЭН (images/2023-12-01/656a380e09c03), которая стояла в первом экране старой страницы:
+             переведена в черный контур с белыми заливками, облака и небо убраны. -->
+        <img src="images/hero-school.png" alt="Родители прижимают к себе младенца, вокруг толпа взрослых наперебой что-то кричит" width="1400" height="1020" fetchpriority="high">
+      </div>
+    </div>
+  </section>
+
+  <!-- Почему нам можно верить. 13 400+ родителей — со слов Анастасии 16.10.2026, 180+ научных источников — с ее же слов, сверить -->
+  <section class="trust" id="pochemu" aria-label="Почему нам можно верить">
+    <div class="wrap">
+      <ul class="facts">
+        <li class="fact"><b>13&nbsp;400+</b><span>родителей уже учились с НЭН</span></li>
+        <li class="fact"><b>180+</b><span>научных источников в основе курсов</span></li>
+        <li class="fact"><b class="word">Доказательная медицина</b><span>вместо «у нас в семье все так делали»</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Курсы. Количество уроков, форматы и цены — со страниц курсов на 16.10.2026 -->
+  <section class="courses" id="kursy">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Курсы Школы НЭН</h2>
+        <p>Начните с того этапа, на котором вы сейчас. Доступ к каждому курсу остается навсегда, к урокам можно возвращаться, когда они снова понадобятся.</p>
+      </div>
+      <div class="courses-grid" id="coursesGrid">
+
+        <article class="course">
+          <div class="course-art art-pink pad">
+            <img src="images/course-pregnancy.svg" alt="Женщина с сумкой через плечо катит коляску и улыбается" width="1080" height="970" loading="lazy">
+          </div>
+          <div class="course-body">
+            <p class="tag">Беременность</p>
+            <h3>Беременность, роды и первая неделя с новорожденным</h3>
+            <p>Для тех, кто планирует беременность, уже ждет ребенка или готовится к родам. Анализы и врачи, покупки и роддом, тело после родов, партнер и собственные страхи.</p>
+            <ul class="meta"><li>14 уроков</li><li>текстовый формат</li></ul>
+            <p class="note">Дешевле музыкального мобиля, который через несколько месяцев все равно придется убрать.</p>
+            <div class="course-buy">
+              <div class="course-btns">
+                <a class="btn" href="https://n-e-n.ru/course/school/enroll">Купить за 4&nbsp;500&nbsp;₽</a>
+                <a class="btn btn-second" href="https://n-e-n.ru/school/kurs1">Подробнее</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="course">
+          <div class="course-art art-sky">
+            <img src="images/course-firstyear.svg" alt="Родители заглядывают в коробку с младенцем, мама смотрит на него в бинокль" width="1340" height="1072" loading="lazy">
+          </div>
+          <div class="course-body">
+            <p class="tag">0–12 месяцев</p>
+            <h3>Первый год с малышом</h3>
+            <p>Сон, кормление, плач, прибавки, прикорм, зубы, безопасность, первые шаги и бесконечное «а так вообще нормально?». Для родителей младенцев и тех, кто к этому году только готовится.</p>
+            <ul class="meta"><li>12 уроков</li><li>видео экспертов</li><li>чек-листы и тесты</li></ul>
+            <p class="note">Дешевле одной тревожной покупки из списка для новорожденного.</p>
+            <div class="course-buy">
+              <div class="course-btns">
+                <a class="btn" href="https://n-e-n.ru/course/firstyear/enroll">Купить за 4&nbsp;500&nbsp;₽</a>
+                <a class="btn btn-second" href="https://n-e-n.ru/firstyear/">Подробнее</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="course">
+          <div class="course-art art-lilac pad">
+            <img src="images/course-perestan.png" alt="Ребенок лежит на полу и кричит, мама сидит рядом и не знает, что делать" width="1264" height="664" loading="lazy">
+          </div>
+          <div class="course-body">
+            <p class="tag">Сложное поведение</p>
+            <h3>Вместо «Перестань немедленно»</h3>
+            <p>Для родителей детей, которые кричат, дерутся, боятся, не могут переключиться или на все отвечают «нет». Разбираем, чему учить ребенка вместо запрета, что ему сказать и как потренировать новое умение дома.</p>
+            <ul class="meta"><li>12 уроков и 4 бонуса</li><li>аудиоверсии</li><li>памятки</li></ul>
+            <p class="note">Все модули открыты сразу: начинайте с того, что сводит с ума сегодня.</p>
+            <div class="course-buy">
+              <div class="course-btns">
+                <a class="btn" href="https://n-e-n.ru/course/perestan/enroll/">Купить за 4&nbsp;500&nbsp;₽</a>
+                <a class="btn btn-second" href="https://n-e-n.ru/perestan/">Подробнее</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="course">
+          <div class="course-art art-pink">
+            <img src="images/course-podrostok.png" alt="Подросток скрестил руки и кричит, мама выглядывает из-за двери" width="1200" height="1200" loading="lazy">
+          </div>
+          <div class="course-body">
+            <p class="tag">11–17 лет</p>
+            <h3>У меня подросток, помогите</h3>
+            <p>33 ситуации из жизни с подростком: ссоры, телефон, школа, деньги, друзья, первая любовь и вопросы посложнее. Что происходит, что можно сказать и когда пора обращаться за помощью.</p>
+            <ul class="meta"><li>33 урока</li><li>текст и аудио</li><li>квизы и памятки</li></ul>
+            <p class="note">Можно начать с сегодняшней ссоры, а к остальному вернуться потом.</p>
+            <div class="course-buy">
+              <div class="course-btns">
+                <a class="btn" href="https://n-e-n.ru/course/podrostok/enroll/">Купить за 4&nbsp;500&nbsp;₽</a>
+                <a class="btn btn-second" href="https://n-e-n.ru/podrostok/landing/">Подробнее</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Зачем -->
+  <section class="why-sec">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Интернет дает родителям много советов и мало опоры</h2>
+        <p>Школа НЭН отсекает лишнее, чтобы вы тратили меньше:</p>
+      </div>
+      <div class="why-grid">
+        <article class="why">
+          <h3>Времени</h3>
+          <p>Не нужно каждый раз начинать поиск с нуля и тонуть в форумах. Открываете урок про свою ситуацию и понимаете, что происходит, что можно сделать самим и с чем идти к специалисту.</p>
+        </article>
+        <article class="why">
+          <h3>Денег</h3>
+          <p>На родительской тревоге хорошо зарабатывают: «обязательные» гаджеты, лишние обследования, чудо-методики. Разбираем, что правда нужно, что можно отложить и без чего спокойно обойтись.</p>
+        </article>
+        <article class="why">
+          <h3>Нервов</h3>
+          <p>Мы не превращаем каждый симптом и каждую ссору в катастрофу и не обещаем волшебных решений. Объясняем, где вариант нормы, где стоит понаблюдать и когда пора за помощью.</p>
+        </article>
+        <article class="why">
+          <h3>Сил на споры</h3>
+          <p>С бабушками, родительскими чатами, поисковиком и внутренним голосом, который шепчет: «А вдруг я все делаю не так?» С проверенной информацией проще не поддаваться на уверенное «все хорошие родители делают так».</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Это не школа идеального родительства -->
+  <section class="not-sec">
+    <div class="wrap">
+      <div class="not-panel">
+        <div class="not-head">
+          <h2>Это не школа идеального родительства</h2>
+          <p>Мы не учим быть спокойной, собранной и просветленной мамой, которая все успевает и никогда не раздражается. Курсы НЭН сделаны для нормальной родительской жизни: с усталостью, тревогой, недосыпом, сомнениями и вопросами, которые неловко задать даже врачу.</p>
+        </div>
+        <article class="not">
+          <h3>Не инфобизнес</h3>
+          <p>Без марафонов успешного материнства, универсальных рецептов и обещаний «сделайте так, и все получится». В родительстве так не бывает.</p>
+        </article>
+        <article class="not">
+          <h3>Не советы из чата</h3>
+          <p>Мы не собираем чужие истории по принципу «нам помогло». В основе курсов исследования, клинические рекомендации и проверка специалистов.</p>
+        </article>
+        <article class="not">
+          <h3>Не страшилки</h3>
+          <p>Не пугаем беременностью, родами, болезнями и переходным возрастом. Где можно выдохнуть, так и говорим. Где нужна помощь, объясняем, к кому идти и что спросить.</p>
+        </article>
+        <article class="not">
+          <h3>Не культ покупок</h3>
+          <p>Хорошее родительство не начинается со списка «обязательных» вещей. Объясняем, что пригодится, что можно купить позже и без чего спокойно можно жить.</p>
+        </article>
+        <article class="not">
+          <h3>Не сюсюканье</h3>
+          <p>НЭН говорит с родителями как со взрослыми людьми. Без «мамочки, потерпите», без героизма и без чувства вины за то, что вам бывает трудно.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Отзывы: дословно со скриншотов старой страницы (n-e-n.ru/school/reviews/otziv-1..7.jpg),
+       эмодзи убраны, «ё» заменена на «е». Имена на скриншотах были скрыты. -->
+  <section class="reviews">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Что пишут родители, которые прошли курсы НЭН</h2>
+      </div>
+      <ul class="reviews-grid">
+        <li><blockquote class="bubble">Как жаль, что этот курс не вышел 7 месяцев назад! Но здорово, что вы такое сделали)</blockquote></li>
+        <li><blockquote class="bubble b-pink">И где вы, блин, были раньше. Но вообще молодцы, большое дело делаете</blockquote></li>
+        <li><blockquote class="bubble b-blue">Огромное спасибо!</blockquote></li>
+        <li><blockquote class="bubble b-blue">Спасибо большое!! Записалась!</blockquote></li>
+        <li><blockquote class="bubble">Респект и уважуха! Мое сердце с вами!</blockquote></li>
+        <li><blockquote class="bubble b-pink">Огонь! Спасибо, ребята</blockquote></li>
+      </ul>
+      <p class="src">Из комментариев и сообщений редакции. Имена мы спрятали: персональные данные бережем так же свято, как дневной сон младенца.</p>
+    </div>
+  </section>
+
+  <!-- FAQ. Оплата и доступ — по условиям со страниц курсов, подарок — кнопки «Подарить курс» на них же -->
+  <section class="faq" id="voprosy">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>А если…</h2>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>Не знаю, какой курс выбрать?<span class="plus" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></summary>
+          <div class="answer">
+            <p>Ориентируйтесь на то, что происходит у вас сейчас:</p>
+            <ul>
+              <li>ждете ребенка или планируете — <a href="https://n-e-n.ru/school/kurs1">«Беременность, роды и первая неделя с новорожденным»</a>;</li>
+              <li>ребенку меньше года — <a href="https://n-e-n.ru/firstyear/">«Первый год с малышом»</a>;</li>
+              <li>ребенок кричит, дерется или на все отвечает «нет» — <a href="https://n-e-n.ru/perestan/">«Вместо „Перестань немедленно“»</a>;</li>
+              <li>подростку 11–17 лет — <a href="https://n-e-n.ru/podrostok/landing/">«У меня подросток, помогите»</a>.</li>
+            </ul>
+          </div>
+        </details>
+        <details>
+          <summary>Курс заменит врача или психолога?<span class="plus" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></summary>
+          <div class="answer">
+            <p>Нет, и диагнозы мы не ставим. Курсы помогают понять, что происходит, прийти на прием с понятными вопросами и не пропустить момент, когда «само пройдет» уже плохой план.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Как оплатить и когда откроется доступ?<span class="plus" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></summary>
+          <div class="answer">
+            <p>Нажмите «Купить» в карточке нужного курса. Оплатить можно картой или через СБП, материалы открываются сразу после оплаты.</p>
+            <p>Если что-то не получилось, напишите на <a href="mailto:support@n-e-n.ru">support@n-e-n.ru</a>.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Сколько действует доступ?<span class="plus" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></summary>
+          <div class="answer">
+            <p>Бессрочно. Подписки нет: курс оплачивается один раз, и к урокам можно вернуться через месяц или через год.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Хочу подарить курс?<span class="plus" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></summary>
+          <div class="answer">
+            <p>В подарок можно оплатить курсы <a href="https://n-e-n.ru/course/school/gift">про беременность и роды</a>, <a href="https://n-e-n.ru/course/firstyear/gift">про первый год</a> и <a href="https://n-e-n.ru/course/perestan/gift/">«Вместо „Перестань немедленно“»</a>.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Финальный призыв -->
+  <section class="final">
+    <div class="wrap">
+      <div class="final-panel" id="finalPanel">
+        <div class="final-copy">
+          <h2>Не надо разбираться в родительстве в одиночку</h2>
+          <p class="lead">Ждете ребенка, не спите с младенцем, десятый раз за утро слышите «нет» или не узнаете собственного подростка? Начните с курса, который нужен сейчас, и возвращайтесь к урокам, когда снова станет тревожно или слишком шумно от чужих советов.</p>
+        </div>
+        <div class="final-action">
+          <p class="name">Школа НЭН</p>
+          <p class="includes">4 курса · от беременности до 17&nbsp;лет · доступ навсегда</p>
+          <p class="price">4&nbsp;500&nbsp;₽<small>за курс</small></p>
+          <a class="btn" href="#kursy">Выбрать курс</a>
+          <p class="note">Подписки нет: курс оплачивается один раз.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<aside class="sticky-cta" id="stickyCta" aria-label="Выбрать курс" hidden>
+  <div class="txt">
+    <p class="line"><span class="desk">Четыре курса: от беременности до подросткового возраста</span><span class="mob">4 курса для родителей</span></p>
+    <p class="name">4&nbsp;500&nbsp;₽ за курс, доступ навсегда</p>
+  </div>
+  <a class="btn" href="#kursy">Выбрать курс</a>
+</aside>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="https://n-e-n.ru/" aria-label="«Нет, это нормально»">
+          <img src="https://n-e-n.ru/img/nen_logo_v3.svg" alt="НЭН — Нет, это нормально" width="112" height="32" loading="lazy">
+        </a>
+        <div class="socials">
+          <a href="https://t.me/net_etonorm" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212-.07-.062-.174-.041-.249-.024-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
+          <a href="https://vk.com/net_eto_normalno" target="_blank" rel="noopener" aria-label="ВКонтакте"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.14C2 20.67 3.33 22 8.93 22h6.14c5.6 0 6.93-1.33 6.93-6.93V8.93C22 3.33 20.68 2 15.07 2Zm3.15 14.27h-1.44c-.55 0-.72-.44-1.71-1.43-.86-.83-1.24-.94-1.45-.94-.29 0-.38.08-.38.49v1.31c0 .35-.11.56-1.03.56-1.52 0-3.2-.92-4.39-2.63-1.79-2.5-2.28-4.38-2.28-4.77 0-.21.08-.4.49-.4h1.44c.37 0 .51.17.65.56.71 2.06 1.9 3.86 2.39 3.86.18 0 .27-.08.27-.55V11.1c-.06-1.04-.61-1.13-.61-1.5 0-.18.15-.36.39-.36h2.27c.31 0 .42.17.42.53v3.09c0 .31.14.42.23.42.18 0 .33-.11.66-.44 1.02-1.14 1.75-2.9 1.75-2.9.1-.21.27-.4.64-.4h1.44c.43 0 .53.22.43.53-.18.83-1.94 3.32-1.94 3.32-.15.25-.21.36 0 .64.15.21.65.64.98 1.03.61.69 1.07 1.27 1.2 1.67.12.4-.08.6-.49.6Z"/></svg></a>
+          <a href="https://dzen.ru/nenru" target="_blank" rel="noopener" aria-label="Дзен"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C6.984 0 3.973.213 2.093 2.093.213 3.973 0 6.984 0 12c0 5.016.213 8.027 2.093 9.907C3.973 23.787 6.984 24 12 24c5.016 0 8.027-.213 9.907-2.093C23.787 20.027 24 17.016 24 12c0-5.016-.213-8.027-2.093-9.907C20.027.213 17.016 0 12 0zm.545 2.19c.104 3.46.594 5.917 2.093 7.417 1.462 1.462 4.049 1.888 7.171 1.848v1.09c-3.122-.04-5.71.386-7.171 1.848-1.5 1.5-1.989 3.957-2.093 7.417h-1.09c-.104-3.46-.594-5.917-2.093-7.417-1.462-1.462-4.049-1.888-7.171-1.848v-1.09c3.122.04 5.71-.386 7.171-1.848 1.5-1.5 1.989-3.957 2.093-7.417h1.09z"/></svg></a>
+          <a href="https://ok.ru/netetonorm" target="_blank" rel="noopener" aria-label="Одноклассники"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.02 8.56c.92 0 1.67-.75 1.67-1.67 0-.93-.75-1.68-1.67-1.68-.93 0-1.68.75-1.68 1.68 0 .92.75 1.67 1.68 1.67m0 2.4A4.08 4.08 0 0 1 7.94 6.9a4.08 4.08 0 0 1 4.08-4.07A4.07 4.07 0 0 1 16.09 6.9a4.08 4.08 0 0 1-4.07 4.06m2.3 4.62c.83-.19 1.63-.52 2.36-.99a1.2 1.2 0 1 0-1.29-2.03c-2.06 1.31-4.68 1.31-6.74 0a1.2 1.2 0 0 0-1.29 2.03c.73.47 1.53.8 2.36.99l-2.27 2.28a1.2 1.2 0 0 0 1.7 1.7l2.2-2.21 2.21 2.21a1.2 1.2 0 0 0 1.7-1.7z"/></svg></a>
+          <a href="https://www.youtube.com/@netetonorm" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        </div>
+      </div>
+      <p class="foot-legal">
+        <span class="age">18+</span>Курсы издания «Нет, это нормально» для родителей: от беременности до подросткового возраста.<br><br>
+        <a href="https://n-e-n.ru/oferta/">Оферта</a> · <a href="https://n-e-n.ru/privacy/">Политика конфиденциальности</a><br><br>
+        ООО «НЭН» · ИНН 9704078031 · ОГРН 1217700330913<br>
+        109341, г. Москва, ул. Братиславская, д. 6, к. 1, кв. 151 · +7 993 613-87-35 · support@n-e-n.ru
+      </p>
+    </div>
+    <div class="foot-bottom">© «Нет, это нормально». Используя сайт, вы соглашаетесь с условиями использования.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ── Плашка «Выбрать курс» ──
+     Показываем, когда кнопка первого экрана ушла ВВЕРХ за край окна.
+     Прячем, пока на экране карточки курсов или финальный призыв.
+     Положение считаем при прокрутке: IntersectionObserver молчит, если элемент
+     перескочил окно целиком (быстрая прокрутка, переход по якорю). */
+  var bar = document.getElementById('stickyCta');
+  var heroBtn = document.getElementById('heroBtn');
+  var hide = [document.getElementById('coursesGrid'), document.getElementById('finalPanel')];
+
+  if (bar && heroBtn && hide[0] && hide[1]) {
+    bar.hidden = false;
+    var ticking = false;
+    var onScreen = function(el, vh){ var r = el.getBoundingClientRect(); return r.bottom > 0 && r.top < vh; };
+    var sync = function(){
+      ticking = false;
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      var heroPassed = heroBtn.getBoundingClientRect().bottom <= 0;
+      bar.classList.toggle('show', heroPassed && !onScreen(hide[0], vh) && !onScreen(hide[1], vh));
+    };
+    var request = function(){ if (!ticking) { ticking = true; requestAnimationFrame(sync); } };
+    window.addEventListener('scroll', request, {passive: true});
+    window.addEventListener('resize', request);
+    sync();
+  }
+})();
+</script>
+<!-- Метрика: общий счетчик сайта (41151484) + счетчик Школы (110396040), как на старой странице.
+     Включается только на n-e-n.ru. Цели старой страницы сохранены: hub_course_click — переход
+     на страницу курса, gift_click — на оплату подарка, buy_click — на /enroll. Ссылки на странице
+     абсолютные, поэтому сравниваем путь ссылки, а не атрибут href. -->
+<script>if(/(^|\.)n-e-n\.ru$/.test(location.hostname)){(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(41151484,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});ym(110396040,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});window.schTrack=function(g){try{window.ym&&ym(110396040,"reachGoal",g)}catch(e){}};var hub=["/school/kurs1","/school/kurs1/","/firstyear/","/perestan/","/podrostok/landing/"];document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a[href]");if(!a||!/(^|\.)n-e-n\.ru$/.test(a.hostname))return;var p=a.pathname;if(p.indexOf("/enroll")>-1){schTrack("buy_click")}else if(p.indexOf("/gift")>-1){schTrack("gift_click")}else if(hub.indexOf(p)>-1){schTrack("hub_course_click")}},true);}</script>
+</body>
+</html>
